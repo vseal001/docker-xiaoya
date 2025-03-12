@@ -71,13 +71,13 @@ jobs:
       - name: Build base image
         run: |
           docker buildx imagetools create \
-            --tag ghcr.io/monlor/embyserver:latest \
-            emby/embyserver:latest \
+            --tag ghcr.io/vseal001/embyserver:latest \
+            amilys/embyserver:4.9.0.40 \
             emby/embyserver_arm64v8:latest \
             emby/embyserver_arm32v7
 
           docker buildx imagetools create \
-            --tag ghcr.io/monlor/embyserver-amilys:latest \
+            --tag ghcr.io/vseal001/embyserver-amilys:latest \
             amilys/embyserver:latest \
             amilys/embyserver_arm64v8:latest
 
@@ -212,7 +212,7 @@ jobs:
           tags: ${{ needs.prepare.outputs.embyserver_tags }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           build-args: |
-            BASE_IMAGE=ghcr.io/monlor/embyserver:latest
+            BASE_IMAGE=ghcr.io/vseal001/embyserver:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
 
@@ -224,7 +224,7 @@ jobs:
           tags: ${{ needs.prepare.outputs.embyserver-amilys_tags }}
           platforms: linux/amd64,linux/arm64
           build-args: |
-            BASE_IMAGE=ghcr.io/monlor/embyserver-amilys:latest
+            BASE_IMAGE=ghcr.io/vseal001/embyserver-amilys:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
       
