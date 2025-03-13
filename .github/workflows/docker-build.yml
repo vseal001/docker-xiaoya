@@ -72,7 +72,7 @@ jobs:
         run: |
           docker buildx imagetools create \
             --tag ghcr.io/vseal001/embyserver:latest \
-            amilys/embyserver:4.9.0.40 \
+            emby/embyserver:latest \
             emby/embyserver_arm64v8:latest \
             emby/embyserver_arm32v7
 
