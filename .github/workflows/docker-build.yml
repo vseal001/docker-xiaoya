@@ -54,7 +54,7 @@ jobs:
           else
             LATEST_TAG=${GITHUB_REF#refs/heads/}
             for var in "${vars[@]}"; do
-              echo "::set-output name=${var}_tags::${IMAGE_PREFIX}/xiaoya-${var}:${LATEST_TAG}"
+              echo "::set-output name=${var}_tags::${IMAGE_PREFIX}/xiaoya-${var}:${LATEST_TAG},${IMAGE_PREFIX}/xiaoya-${var}:latest"
             done
           fi
       
