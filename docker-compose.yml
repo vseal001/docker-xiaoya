@@ -30,7 +30,7 @@ services:
     networks:
       - default
   emby:
-    image: ghcr.io/vseal001/xiaoya-embyserver:latest
+    image: ghcr.io/vseal001/xiaoya-embyserver-amilys:latest
     env_file:
       - env
     depends_on:
